@@ -1,0 +1,916 @@
+
+/*
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+*/
+#include <android/log.h>
+#include <unistd.h>
+#include <thread>
+#include <limits>
+#include <KittyMemory/KittyMemory.h>
+#include <KittyMemory/MemoryPatch.h>
+#include <KittyMemory/KittyScanner.h>
+#include <KittyMemory/KittyUtils.h>
+#include <xdl.h>
+#include <KittyUtils.h>
+#include <KittyMemory.h>
+#include <Il2Cpp.h>
+#include <ImguiPP.h>
+#include <Themes.h>
+#include <fstream>
+#include <SubstrateHook.h>
+#include <CydiaSubstrate.h>
+#include "AXL_MODS_HOOK/gui.hpp"
+#include "Firewall.h"
+#include "exptime.h"
+#include "Chams.h"
+#include "oxorany/oxorany.h"
+#include "kalaland.h"
+#include "Icon/OPPOSans-H.h"
+#include "AxlMods_AutoUpdate/Icon.h"
+#include "AxlMods_AutoUpdate/Iconcpp.h"
+#include "il2cpp.h"
+#include "fonts/FontAwesome6_solid.h"
+#include "kalaland.hpp"
+#include "AxlMods_AutoUpdate/Tools/Call_Tools.h"
+/*
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+*/
+
+#include "BebasNeue-Regular.h"
+float SIZE_REDUCE = 0.f;
+bool REDUCER = true;
+ImFont* F50 = nullptr;
+ImFont* F107 = nullptr;
+ImFont* SOCIAL = nullptr;
+ImFont* Bold = nullptr;
+//============
+void (*OpenURL)(String *url);
+
+struct My_Patches {
+    MemoryPatch Bypass1;
+    MemoryPatch Bypass2;
+    MemoryPatch Bypass3;
+    MemoryPatch Bypass4;
+    MemoryPatch Bypass5;
+    MemoryPatch Bypass6;
+    MemoryPatch Bypass7;
+    MemoryPatch Bypass8;
+    MemoryPatch Bypass9;
+    MemoryPatch Bypass10;
+    MemoryPatch Bypass11;
+    MemoryPatch Bypass12;
+    MemoryPatch Bypass13;
+    MemoryPatch Bypass14;
+    MemoryPatch Bypass15;
+    
+    MemoryPatch Guest;
+} hexPatches;
+using zygisk::Api;
+using zygisk::AppSpecializeArgs;
+using zygisk::ServerSpecializeArgs;
+
+
+
+void hack();
+void writeLog(const std::string& logMessage, const std::string& filename = "/storage/emulated/0/Android/data/com.dualspace.multispace.androidx/files/log.txt");
+
+
+/*
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+*/
+
+class MyModule : public zygisk::ModuleBase {
+ public:
+  void onLoad(Api *api, JNIEnv *env) override {
+    this->api_ = api;
+    this->env_ = env;
+  
+
+  }
+
+  void preAppSpecialize(AppSpecializeArgs *args) override {
+    static constexpr const char *packages[] = {
+        "com.dts.freefiremax"
+    };
+    const char *process = env_->GetStringUTFChars(args->nice_name, nullptr);
+    for (const auto *package: packages) {
+      is_game_ = (strcmp(process, package) == 0);
+      if (is_game_) {
+        break;
+      }
+    }
+    env_->ReleaseStringUTFChars(args->nice_name, process);
+  }
+
+  void postAppSpecialize(const AppSpecializeArgs *args) override {
+    if (is_game_) {
+
+     //  genv->GetJavaVM(&gJvm);
+      std::thread{hack}.detach();
+    }
+  }
+
+ private:
+  Api *api_ = nullptr;
+  JNIEnv *env_ = nullptr;
+  bool is_game_ = false;
+};
+
+
+uintptr_t il2cpp_base = 0;
+void *getRealAddr(ulong offset) {
+    return reinterpret_cast<void*>(il2cpp_base + offset);
+};
+
+void Particles()
+{
+    
+  ImVec2 screen_size = ImVec2(g_GlWidth, g_GlHeight);
+    static ImVec2 partile_pos[100];
+    static ImVec2 partile_target_pos[100];
+    static float partile_speed[100];
+    static float partile_radius[100];
+
+
+    for (int i = 1; i < 50; i++)
+    {
+        if (partile_pos[i].x == 0 || partile_pos[i].y == 0)
+        {
+            partile_pos[i].x = rand() % (int)screen_size.x + 1;
+            partile_pos[i].y = 15.f;
+            partile_speed[i] = 1 + rand() % 25;
+            partile_radius[i] = rand() % 4;
+
+            partile_target_pos[i].x = rand() % (int)screen_size.x;
+            partile_target_pos[i].y = screen_size.y * 2;
+        }
+
+        partile_pos[i] = ImLerp(partile_pos[i], partile_target_pos[i], ImGui::GetIO().DeltaTime * (partile_speed[i] / 60));
+
+        if (partile_pos[i].y > screen_size.y)
+        {
+            partile_pos[i].x = 0;
+            partile_pos[i].y = 0;
+        }
+
+        ImGui::GetWindowDrawList()->AddCircleFilled(partile_pos[i], partile_radius[i], ImColor(255,255,255, 255/2));
+    }
+
+}
+
+#include "imGui/stb_image.h"
+#include "AxlMods.h"
+
+struct TextureInfo { ImTextureID textureId; int x; int y; int w; int h; };
+static TextureInfo textureInfo;
+TextureInfo createTexture(char *ImagePath) {
+int w, h, n;
+stbi_uc *data = stbi_load(ImagePath, &w, &h, &n, 0);
+GLuint texture;
+glGenTextures(1, &texture);
+glEnable(GL_TEXTURE_2D);
+glBindTexture(GL_TEXTURE_2D, texture);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+if (n == 3) {
+glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+} else {
+glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+}stbi_image_free(data);
+textureInfo.textureId = reinterpret_cast<ImTextureID>((GLuint *) texture);
+textureInfo.w = w;
+textureInfo.h = h;
+return textureInfo;
+}TextureInfo CreateTexture(const unsigned char* buf, int len) {
+TextureInfo image;
+unsigned char* image_data = stbi_load_from_memory(buf, len, &image.w, &image.h, NULL, 0);
+if (image_data == NULL) perror("文件不存在"); GLuint image_texture;
+glGenTextures(1, &image_texture);
+glBindTexture(GL_TEXTURE_2D, image_texture);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); //对于非二次方纹理，这在 WebGL 上是必需的
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); //相同的
+#if defined(GL_UNPACK_ROW_LENGTH) && !defined(__EMSCRIPTEN__)
+glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+#endif
+glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.w, image.h, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data);
+stbi_image_free(image_data);
+image.textureId = (ImTextureID)image_texture;
+return image;
+}
+
+TextureInfo AxlMods;
+extern TextureInfo AxlMods;
+
+void InitTexture() {
+}
+
+static int Tab = 1;
+
+void SetupImgui() {
+IMGUI_CHECKVERSION();
+InitTexture();
+ImGui::CreateContext();
+ImGui_ImplAndroid_Init(nullptr);
+ImGuiIO& io = ImGui::GetIO();
+
+
+static const ImWchar icons_ranges[] = { 0xf000, 0xf3ff, 0 };
+ImFontConfig icons_config;
+ // ImFontConfig CustomFont;
+ // CustomFont.FontDataOwnedByAtlas = false;
+icons_config.MergeMode = true;
+icons_config.PixelSnapH = true;
+icons_config.OversampleH = 2.5;
+icons_config.OversampleV = 2.5;
+
+
+   io.Fonts->AddFontFromMemoryTTF(&BebasNeueRegular_ttf, sizeof BebasNeueRegular_ttf, 34, NULL, io.Fonts->GetGlyphRangesVietnamese());
+//ImFont* titleFont = io.Fonts->AddFontFromMemoryTTF( &BebasNeueRegular_ttf, sizeof BebasNeueRegular_ttf,50,NULL,io.Fonts->GetGlyphRangesVietnamese());
+
+io.Fonts->AddFontFromMemoryCompressedTTF(font_awesome_data, font_awesome_size, 25.0f, &icons_config, icons_ranges);
+ImGui_ImplOpenGL3_Init("#version 300 es");
+ImFontConfig font_cfg;
+font_cfg.SizePixels = 22.0f;
+io.Fonts->AddFontDefault(&font_cfg);
+   
+ImGuiStyle *style = &ImGui::GetStyle();
+//
+
+
+    ImVec4 whiteColor(1.0f, 1.0f, 1.0f, 1.0f);
+    style->WindowTitleAlign = ImVec2(0.5f,0.5f);
+
+  //  ImGui::StyleColorsLight();
+    ImGui::StyleColorsLight();//   Màu Xanh Nước Biển
+ImGui::GetStyle().ScaleAllSizes(3.0f);
+ImFontConfig CustomFont;
+CustomFont.FontDataOwnedByAtlas = false;
+font_cfg.SizePixels = 22.0f;
+static const ImWchar vietnamese_chars[] = {
+0x0020, 0x00FF, // Basic Latin + Latin Supplement
+0x0102, 0x0103, // Â, â
+0x0110, 0x0111, // Đ, đ
+0x0128, 0x0129, // Ĩ, ĩ
+0x0168, 0x0169, // Ũ, ũ
+0x01A0, 0x01A1, // Ơ, ơ
+0x01AF, 0x01B0, // Ư, ư
+0x1EA0, 0x1EF9, // Vietnamese specific characters
+0 // null-terminated list
+};
+
+
+}
+
+
+/*
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+*/
+namespace Settings
+{
+    static int Tab = 1;
+}
+
+bool clearMousePos = true;
+bool ImGuiOK = false;
+bool initImGui = false;
+
+inline EGLBoolean (*old_eglSwapBuffers)(EGLDisplay dpy, EGLSurface surface);
+inline EGLBoolean hook_eglSwapBuffers(EGLDisplay dpy, EGLSurface surface) {
+    
+        eglQuerySurface(dpy, surface, EGL_WIDTH, &g_GlWidth);
+    eglQuerySurface(dpy, surface, EGL_HEIGHT, &g_GlHeight);
+    
+    
+
+
+    if (!g_IsSetup) {
+        prevWidth = g_GlWidth;
+        prevHeight = g_GlHeight;
+        SetupImgui();
+        
+        g_IsSetup = true;
+    }
+    ImGuiIO &io = ImGui::GetIO();
+
+ImGuiStyle& style = ImGui::GetStyle();
+ImVec2 oldWindowPadding  = style.WindowPadding;
+float  oldWindowRounding = style.WindowRounding;
+float  oldFrameRounding  = style.FrameRounding;
+float  oldWindowBorder   = style.WindowBorderSize;
+style.WindowPadding     = ImVec2(16, 16);
+style.WindowRounding    = 12.0f;
+style.FrameRounding     = 6.0f;
+style.FramePadding      = ImVec2(6, 6);
+style.WindowBorderSize  = 3.0f;  
+style.FrameBorderSize   = 3.0f;
+
+
+
+
+
+
+
+
+/*
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+*/
+
+
+
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplAndroid_NewFrame(g_GlWidth, g_GlHeight);
+    ImGui::NewFrame();
+	if (ImGuiOK) {
+	    int touchCount = (((int (*)())(Class_Input__get_touchCount))());
+    if (touchCount > 0) {
+        UnityEngine_Touch_Fields touch = ((UnityEngine_Touch_Fields(*)(int))(Class_Input__GetTouch))(0);
+        float reverseY = io.DisplaySize.y - touch.m_Position.fields.y;
+        switch (touch.m_Phase) {
+            case TouchPhase::Began:
+            case TouchPhase::Stationary:
+                io.MousePos = ImVec2(touch.m_Position.fields.x, reverseY);
+                io.MouseDown[0] = true;
+                break;
+            case TouchPhase::Ended:
+            case TouchPhase::Canceled:
+                io.MouseDown[0] = false;
+                clearMousePos = true;
+                break;
+            case TouchPhase::Moved:
+                io.MousePos = ImVec2(touch.m_Position.fields.x, reverseY);
+                break;
+            default:
+                break;
+        }
+    }
+	}
+	DrawESP(g_GlWidth, g_GlHeight);
+	
+static bool Show = true;
+static bool clickInProgress = false;
+static float clickStartTime = 0;
+if (Show == false) {
+if (ImGui::Begin(OBFUSCATE(" AuraModz" ), 0,ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground)) {
+const auto& pWindowDrawList = ImGui::GetWindowDrawList();    
+const auto& p = ImGui::GetWindowPos();      
+ImGui::SetCursorPos(ImVec2(5, 5));
+ImVec2 imageSize(100,100);
+ImGui::Image(AxlMods.textureId, imageSize);        
+if (ImGui::IsItemHovered()) {
+if (ImGui::IsMouseClicked(ImGuiMouseButton_Left)) {clickInProgress = true;
+clickStartTime = ImGui::GetTime();}}
+if (clickInProgress && ImGui::IsMouseReleased(ImGuiMouseButton_Left)) {clickInProgress = false;
+float currentTime = ImGui::GetTime();
+float clickDuration = currentTime - clickStartTime;
+if (clickDuration < 0.2f) {Show = true;
+}}}}
+ImGui::End();
+
+	if (Show) {
+	
+   
+     
+      
+		ExpireDate exp;
+exp.setExpirationDate(02,9,2025);
+if (exp.isExpired()) {
+ImGui::Text(OBFUSCATE(ICON_FA_FIGHTER_JET "CAP NHAT MOD TREN CHANEL AURAVN" ICON_FA_CHECK_CIRCLE));
+ImGui::Separator();
+ImGui::Text(OBFUSCATE(ICON_FA_FIGHTER_JET " PHIEN BAN MOI DA CAP NHAT" ICON_FA_CHECK_CIRCLE));
+if (ImGui::Button(ICON_FA_TELEGRAM"  VUI LONG VAO TELEGRAM", ImVec2(ImGui::GetContentRegionAvailWidth(), 50))) {
+OpenURL(Il2CppString::Create(OBFUSCATE("https://t.me/+fWxSXWMrtspjZWU1")));
+}
+ImGui::End();    
+} else {
+
+
+ImGui::PushStyleColor(ImGuiCol_FrameBg,        IM_COL32(0, 0, 0, 255)); 
+ImGui::PushStyleColor(ImGuiCol_FrameBgHovered, IM_COL32(0, 0, 0, 255));   
+ImGui::PushStyleColor(ImGuiCol_FrameBgActive,  IM_COL32(0, 0, 0, 255));   
+ImGui::PushStyleColor(ImGuiCol_CheckMark,      IM_COL32(255, 0, 255, 255));  
+ImGui::PushStyleColor(ImGuiCol_Text,           IM_COL32(255, 255, 255, 255));
+ImGui::PushStyleColor(ImGuiCol_WindowBg,       IM_COL32(0, 0, 0, 255));     
+ImGui::PushStyleColor(ImGuiCol_Border,         IM_COL32(255, 255, 255, 255));
+
+
+
+ImGui::SetNextWindowSize(ImVec2(410, 510), ImGuiCond_Always);
+    ImGui::Begin("AURA VN TEAM THE BEST MENJ", nullptr,
+    ImGuiWindowFlags_NoResize |
+    ImGuiWindowFlags_NoCollapse |
+    ImGuiWindowFlags_NoTitleBar);
+
+ImGui::Image(AxlMods.textureId, ImVec2(60, 60));
+ImGui::SameLine();
+}
+ImGui::SameLine();
+ImGui::SetWindowFontScale(1.8f);
+ImGui::TextColored(ImVec4(1, 0, 1, 1), "AURAVN");
+ImGui::SameLine();
+ImGui::Text("TEAM");
+ImGui::SetWindowFontScale(1.0f);
+    ImGui::Spacing();
+    ImGui::Spacing();
+    ImGui::Checkbox("Aim [Aura]", &Aimbot);
+    ImGui::Checkbox("Esp [Aura]", &Enable);
+    ImGui::Checkbox("Silient [Aura]", &AimSilent);
+    ImGui::Checkbox("TeleKill [Aura]", &Mass.Sucks);  
+
+    ImGui::Checkbox("Speed Run v2 [Aura]", &isSpeedSafe);
+ImGui::PopStyleColor(4);
+
+    ImGui::Spacing();
+    ImGui::Spacing();
+
+    ImGui::PushStyleColor(ImGuiCol_Button,        IM_COL32(255, 0, 255, 255)); // pink
+    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(220, 0, 220, 255));
+    ImGui::PushStyleColor(ImGuiCol_ButtonActive,  IM_COL32(180, 0, 180, 255));
+    ImGui::PushStyleColor(ImGuiCol_Text,          IM_COL32(0, 0, 0, 255));     // black text
+
+    if (ImGui::Button("CLOSE", ImVec2(ImGui::GetContentRegionAvail().x, 55))) {
+Show = false;
+    }
+
+    ImGui::PopStyleColor(4);
+
+    ImGui::End();
+
+    ImGui::PopStyleColor(2);
+	
+
+
+/*
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+*/
+}
+ImGui::End();
+ImGui::PopStyleVar(3);
+ImGui::PopStyleColor(2);
+
+
+ImGui::End();
+
+ImGui::Render(); 
+    
+    
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        return old_eglSwapBuffers(dpy, surface);
+}
+typedef unsigned long DWORD;
+static uintptr_t libBase;
+
+uintptr_t string2Offset(const char *c) {
+    int base = 16;
+    // See if this function catches all possibilities.
+    // If it doesn't, the function would have to be amended
+    // whenever you add a combination of architecture and
+    // compiler that is not yet addressed.
+    static_assert(sizeof(uintptr_t) == sizeof(unsigned long)
+                  || sizeof(uintptr_t) == sizeof(unsigned long long),
+                  "Please add string to handle conversion for this architecture.");
+
+    // Now choose the correct function ...
+    if (sizeof(uintptr_t) == sizeof(unsigned long)) {
+        return strtoul(c, nullptr, base);
+    }
+
+    // All other options exhausted, sizeof(uintptr_t) == sizeof(unsigned long long))
+    return strtoull(c, nullptr, base);
+}
+
+float (*GetSpeedScaleBySpeedType)(void *instance);
+
+float _GetSpeedScaleBySpeedType(void *instance) {
+   
+ if (instance != nullptr) {
+        switch (isSpeed) {
+            case 0: return GetSpeedScaleBySpeedType(instance);            
+            case 1: return 2.4f;
+            case 2: return 2.5f;
+            case 3: return 2.6f;
+            case 4: return 2.7f;
+            case 5: return 2.8f;
+            case 6: return 2.9f;
+            case 7: return 3.0f;
+            case 8: return 3.1f;
+            case 9: return 3.2f;
+   
+            default: return GetSpeedScaleBySpeedType(instance);
+        }
+  
+    }
+    return GetSpeedScaleBySpeedType(instance);
+}
+
+
+float (*GetWeaponRunSpeedScale)(void *instance);
+
+float _GetWeaponRunSpeedScale(void *instance) {
+ 
+ 
+    if (instance != nullptr) {
+        switch (isSpeed) {
+            case 0: return GetWeaponRunSpeedScale(instance);            
+            case 1: return 2.4f;
+            case 2: return 2.5f;
+            case 3: return 2.6f;
+            case 4: return 2.7f;
+            case 5: return 2.8f;
+            case 6: return 2.9f;
+            case 7: return 3.0f;
+            case 8: return 3.1f;
+            case 9: return 3.2f;
+            default: return GetWeaponRunSpeedScale(instance);
+        }
+ 
+    }
+    return GetWeaponRunSpeedScale(instance);
+}
+bool (*SpeedFix)();
+
+bool _SpeedFix() {
+    return true;
+}
+
+inline void hack_injec();
+inline void StartGUI() {
+    void *ptr_eglSwapBuffer = DobbySymbolResolver("/system/lib/libEGL.so", "eglSwapBuffers");
+    if (NULL != ptr_eglSwapBuffer) {
+        DobbyHook((void *)ptr_eglSwapBuffer, (void*)hook_eglSwapBuffers, (void**)&old_eglSwapBuffers);
+            LOGD("Gui Started");
+			hack_injec();
+        }
+    }
+/*
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+*/
+bool libLoaded = false;
+
+DWORD findLibrary(const char *library) {
+    char filename[0xFF] = {0},
+            buffer[1024] = {0};
+    FILE *fp = NULL;
+    DWORD address = 0;
+
+    sprintf(filename, OBFUSCATE("/proc/self/maps"));
+
+    fp = fopen(filename, OBFUSCATE("rt"));
+    if (fp == NULL) {
+        perror(OBFUSCATE("fopen"));
+        goto done;
+    }
+
+    while (fgets(buffer, sizeof(buffer), fp)) {
+        if (strstr(buffer, library)) {
+            address = (DWORD) strtoul(buffer, NULL, 16);
+            goto done;
+        }
+    }
+
+    done:
+
+    if (fp) {
+        fclose(fp);
+    }
+
+    return address;
+}
+
+DWORD getAbsoluteAddress(const char *libraryName, DWORD relativeAddr) {
+    libBase = findLibrary(libraryName);
+    if (libBase == 0)
+        return 0;
+    return (reinterpret_cast<DWORD>(libBase + relativeAddr));
+}
+ProcMap unityMap, anogsMap, il2cppMap;
+using KittyScanner::RegisterNativeFn;
+
+
+
+    
+    
+void hack() {
+     LOGD("Inject Ok");
+    //std::thread thread_hack(hack_thread, getpid());
+    //thread_hack.detach();
+    
+}
+uintptr_t get_symbol_addr_in_pid(pid_t pid, const char* libname, uintptr_t offset_in_lib) {
+    char maps_path[64];
+    snprintf(maps_path, sizeof(maps_path), "/proc/%d/maps", pid);
+
+    FILE* fp = fopen(maps_path, "r");
+    if (!fp) return 0;
+
+    char line[512];
+    uintptr_t base = 0;
+
+    while (fgets(line, sizeof(line), fp)) {
+        if (strstr(line, libname)) {
+            sscanf(line, "%lx-%*lx", &base);
+            break;
+        }
+    }
+    fclose(fp);
+
+    if (base == 0) return 0;
+    return base + offset_in_lib;
+}
+
+pid_t get_pid_by_name(const char* process_name) {
+    DIR* proc_dir = opendir("/proc");
+    if (!proc_dir) return -1;
+
+    struct dirent* entry;
+    while ((entry = readdir(proc_dir)) != NULL) {
+        if (entry->d_type != DT_DIR) continue;
+
+        pid_t pid = atoi(entry->d_name);
+        if (pid <= 0) continue;
+
+        char cmdline_path[256];
+        snprintf(cmdline_path, sizeof(cmdline_path), "/proc/%d/cmdline", pid);
+
+        FILE* fp = fopen(cmdline_path, "r");
+        if (!fp) continue;
+
+        char cmdline[256];
+        fgets(cmdline, sizeof(cmdline), fp);
+        fclose(fp);
+
+        if (strstr(cmdline, process_name)) {
+            closedir(proc_dir);
+            return pid;
+        }
+    }
+
+    closedir(proc_dir);
+    return -1;
+}
+
+void writeLog(const std::string& logMessage, const std::string& filename) {
+    std::ofstream outFile(filename, std::ios::app); // Mở file ở chế độ append (thêm)
+    if (outFile.is_open()) {
+        outFile << logMessage << std::endl;
+        outFile.close();
+    } else {
+        std::cerr << "Không thể mở file log: " << filename << std::endl;
+    }
+}
+
+bool is_current_process(const char* target_name) {
+    char cmdline_path[64];
+    snprintf(cmdline_path, sizeof(cmdline_path), "/proc/%d/cmdline", getpid());
+
+    FILE* fp = fopen(cmdline_path, "r");
+    if (!fp) return false;
+
+    char cmdline[256] = {0};
+    fgets(cmdline, sizeof(cmdline), fp);
+    fclose(fp);
+
+    return strcmp(cmdline, target_name) == 0;
+}
+
+
+/*
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+*/
+
+void hack_injec() {
+	while (!unityMap.isValid()) {
+        unityMap = KittyMemory::getLibraryBaseMap("libunity.so");
+		anogsMap = KittyMemory::getLibraryBaseMap("libanogs.so");
+		il2cppMap = KittyMemory::getLibraryBaseMap("libil2cpp.so");
+		
+        sleep(6);
+	}
+    
+ sleep(5);
+    Il2CppAttach();
+    
+    if (mlovinit()) {
+        setShader("_AlphaMask"); //Varies according to game
+        LogShaders();
+        Wallhack();
+MemoryPatch::createWithHex(getAbsoluteAddress("libil2cpp.so", 0x342efe),"00 00 80 D2 C0 03 5F D6");
+MemoryPatch::createWithHex(getAbsoluteAddress("libil2cpp.so", 0x342f06),"00 00 80 D2 C0 03 5F D6");
+MemoryPatch::createWithHex(getAbsoluteAddress("libil2cpp.so", 0x6f5a8eb),"00 00 80 D2 C0 03 5F D6");
+    }
+
+
+DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_IsGod"), 0), (void *) _get_IsGod, (void **) &get_IsGod); 
+     
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Weapon"), OBFUSCATE("GetCombineType"), 0), (void *) _GetCombineType, (void **) &GetCombineType);
+
+DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("OJOHLBJEIJO"), 2), (void *) hook_mrAimSilent, (void **)&orig_mrSilentAim);
+     DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("PlayerAttributes"), OBFUSCATE("GetDashSpeedScale"), 0), (void *) _GetWeaponRunSpeedScale, (void **)& GetWeaponRunSpeedScale);
+     DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("PlayerAttributes"), OBFUSCATE("GetDashSpeedScale"), 0), (void *) _GetWeaponRunSpeedScale, (void **)& GetWeaponRunSpeedScale);
+   DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("IsFoldWingGliding"), 0), (void *) _SpeedFix, (void **)& SpeedFix);
+   DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("IsFoldWingGliding"), 0), (void *) _IsFoldWingGliding, (void **)& IsFoldWingGliding);
+   DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("message"), OBFUSCATE("ProtoUtil"), OBFUSCATE("MappingFromPhysXState"), 1), (void *) _SpeedFix, (void **)& SpeedFix);
+      DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("message"), OBFUSCATE("ProtoUtil"), OBFUSCATE("MappingFromPhysXState"), 1), (void *) _GetSpeedScaleBySpeedType, (void **)& GetSpeedScaleBySpeedType);
+   DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("message"), OBFUSCATE("ProtoUtil"), OBFUSCATE("MappingFromPhysXState"), 1), (void *) _MappingFromPhysXState, (void **)& MappingFromPhysXState);
+   
+   
+   DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("UpdateRotation"), 2), (void *) hook_mrAimSilent, (void **)&orig_mrSilentAim);
+	 DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_InSwapWeaponCD"), 0), (void *) _get_InSwapWeaponCD, (void **) &get_InSwapWeaponCD);
+ DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("get_InSwapWeaponCD"), 0), (void *) _get_InSwapWeaponCD, (void **) &get_InSwapWeaponCD);
+     
+
+//DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("message"), OBFUSCATE("ProtoUtil"), OBFUSCATE("MappingFromPhysXState"), 1), (void *) _LEBIPIGPEEP, (void **)& LEBIPIGPEEP);
+//aimsilent
+ //DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("UpdateRotation"), 2), (void *) hook_mrAimSilent, (void **)&orig_mrSilentAim);
+
+ DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("OJOHLBJEIJO"), 2), (void *) hook_mrAimSilent, (void **)&orig_mrSilentAim);
+
+	 
+DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("UpdateBehavior"), 2), (void *) _LateUpdate, (void **) &LateUpdate);
+	//aimsilent
+	//DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("OJOHLBJEIJO"), 2), (void *) hook_mrAimSilent, (void **)&orig_mrSilentAim);
+	 
+        // Speed Run
+  // DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("Player"), OBFUSCATE("IsFoldWingGliding"), 0), (void *) _IsFoldWingGliding, (void **)& IsFoldWingGliding);
+	//DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("message"), OBFUSCATE("LLOABGDLMGK"), OBFUSCATE("LEBIPIGPEEP"), 1), (void *) _LEBIPIGPEEP, (void **)& LEBIPIGPEEP);
+
+    // ResetGuest
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW"), OBFUSCATE("GameConfig") , OBFUSCATE("get_ResetGuest"), 0), (void *) ResetGuest, (void **) &_ResetGuest);
+    
+	 // Cam Xa
+	//DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("FollowCamera"), OBFUSCATE("get_OffsetForNormal"), 0),(void *)_GetCameraHeightRateValue, (void **)&GetCameraHeightRateValue);
+    
+	
+	
+    // Bypass
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("UnityEngine.CoreModule.dll"), OBFUSCATE("UnityEngine"), OBFUSCATE("AndroidJNI"), OBFUSCATE("IsInstanceOf"), 2), (void *) &_Bypass, (void **) &Bypass);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("JPPGAJBAAKK"), OBFUSCATE("IsOnlineGame"), 2), (void *) &_Bypass, (void **) &Bypass);
+   // DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("AnoSDKNamespace"), OBFUSCATE("IOPOOHPNCKH"), OBFUSCATE("LBABEMNOJAJ"), 8), (void *) &_Bypass, (void **) &Bypass);
+
+    //Fix Game
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("mscorlib.dll"), OBFUSCATE("System"), OBFUSCATE("SerializableAttribute"), OBFUSCATE(".ctor"), 0), (void *) &_FixGame, (void **) &FixGame);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("GarenaMSDK"), OBFUSCATE("GarenaMSDKMgr"), OBFUSCATE("IsPlatformInstalled"), 0), (void *) &_FixGame, (void **) &FixGame);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("System.dll"), OBFUSCATE("System.Net"), OBFUSCATE("WebProxy"), OBFUSCATE("IsBypassed"), 0), (void *) &_FixGame, (void **) &FixGame);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("System.dll"), OBFUSCATE("System.Net"), OBFUSCATE("IWebProxy"), OBFUSCATE("IsBypassed"), 0), (void *) &_FixGame, (void **) &FixGame);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("System.dll"), OBFUSCATE("System.Net"), OBFUSCATE("WebProxy"), OBFUSCATE(".ctor"), 0), (void *) &_FixGame, (void **) &FixGame);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("System.dll"), OBFUSCATE("System.Net"), OBFUSCATE("WebProxy"), OBFUSCATE("CheckBypassList"), 0), (void *) &_FixGame, (void **) &FixGame);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW"), OBFUSCATE("EventLogger"), OBFUSCATE("LogReportCheatInHistory"), 0), (void *) &_FixGame, (void **) &FixGame);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW"), OBFUSCATE("EventLogger"), OBFUSCATE("LogReportCheat"), 0), (void *) &_FixGame, (void **) &FixGame);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW"), OBFUSCATE("MobileReplayManager"), OBFUSCATE("GetGameTimeMS"), 0), (void *) &_FixGame, (void **) &FixGame);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW"), OBFUSCATE("CreditPunishManager"), OBFUSCATE("ShowPunishWindow"), 0), (void *) &_FixGame, (void **) &FixGame);
+
+
+
+    
+    
+    /*
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+*/
+    
+    
+    
+        DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("UnityEngine.ParticleSystemModule.dll"), OBFUSCATE(""), OBFUSCATE("CollisionModule"), OBFUSCATE("get_maxKillSpeed"), 0), (void *) &_get_maxKillSpeed, (void **) &get_maxKillSpeed);
+    // Bypass Esp
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("SceneGraphicsQuality"), OBFUSCATE("SetGraphicsQuality"), 0), (void *) _BypassESP, (void **) &BypassESP);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("UnityEngine.CoreModule.dll"), OBFUSCATE("UnityEngine"), OBFUSCATE("Screen"), OBFUSCATE("SetResolution"), 0), (void *) _BypassESP, (void **) &BypassESP);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("UnityEngine.CoreModule.dll"), OBFUSCATE("UnityEngine"), OBFUSCATE("QualitySettings"), OBFUSCATE("GetQualityLevel"), 0), (void *) _BypassESP, (void **) &BypassESP);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("COW.GamePlay"), OBFUSCATE("SceneGraphicsQuality"), OBFUSCATE("SetGraphicsQuality"), 0), (void *) _BypassESP, (void **) &BypassESP);
+
+    // Bypass New
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("GCommon"), OBFUSCATE("PlatformUtility_Android"), OBFUSCATE("IsPackageInstalled"), 0), (void *) _Set_Aim, (void **) &Set_Aim);
+    DobbyHook(Il2CppGetMethodOffset(OBFUSCATE("Assembly-CSharp.dll"), OBFUSCATE("GCommon"), OBFUSCATE("PlatformUtility_Android"), OBFUSCATE("CheckFileExists"), 0), (void *) _Set_Aim, (void **) &Set_Aim);
+
+	OpenURL = (void (*)(String *))Il2CppGetMethodOffset("UnityEngine.CoreModule.dll","UnityEngine","Application","OpenURL",1);
+ImGuiOK = true;
+    
+}
+
+
+void hack_thread(pid_t pid) {
+	
+	StartGUI();
+	while(pid == -1){pid = get_pid_by_name("com.dts.freefiremax");} 
+	remote_inject(pid);
+	writeLog(to_string(pid));
+    
+}
+
+JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void * reserved) {
+JNIEnv *env;
+vm->GetEnv((void **) &env, JNI_VERSION_1_6); 
+return JNI_VERSION_1_6;
+}
+
+__attribute__((constructor))
+void lib_main()
+{
+    std::thread thread_hack(hack_thread, get_pid_by_name("com.dts.freefiremax"));
+    thread_hack.detach();
+}
+//REGISTER_ZYGISK_MODULE(MyModule)
+/*
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+===============================[ 𝗠𝗔𝗗𝗘 𝗕𝗬 @𝗶𝘁𝘀𝗔𝘅𝗹𝗢𝗽 ]============================
+*/
